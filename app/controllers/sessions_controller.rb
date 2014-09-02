@@ -16,8 +16,8 @@ class SessionsController < ApplicationController
         redirect_to sign_in_path
       end
     else
-      flash.now[:danger] = "Incorrect email or password. Please try again."
-      render :new
+      flash[:danger] = "Incorrect email or password. Please try again."
+      redirect_to sign_in_path
     end
   end
 
