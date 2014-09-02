@@ -43,7 +43,7 @@ describe SessionsController do
         expect(flash[:danger]).not_to be_blank
       end
       it 'renders new template' do
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to sign_in_path
       end
     end
   end
