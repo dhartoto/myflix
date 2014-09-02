@@ -6,13 +6,14 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
+    access = UserAccess.new(user).sign_in(params[:password])
+    if access.approved
       session[:username] = user.username
       flash[:success] = "Welcome #{ user.username }"
       redirect_to home_path
     else
-      flash.now[:danger] = "Incorrect email or password. Please try again."
-      render :new
+      flash[:danger] = access.error_message
+      redirect_to sign_in_path
     end
   end
 
