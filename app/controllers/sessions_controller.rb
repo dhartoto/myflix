@@ -6,17 +6,13 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      if user.active?
-        session[:username] = user.username
-        flash[:success] = "Welcome #{ user.username }"
-        redirect_to home_path
-      else
-        flash[:danger] = "Your account has been suspended."
-        redirect_to sign_in_path
-      end
+    access = UserAccess.new(user).sign_in(params[:password])
+    if access.approved
+      session[:username] = user.username
+      flash[:success] = "Welcome #{ user.username }"
+      redirect_to home_path
     else
-      flash[:danger] = "Incorrect email or password. Please try again."
+      flash[:danger] = access.error_message
       redirect_to sign_in_path
     end
   end
