@@ -1,6 +1,6 @@
 class UserAccess
 
-  attr_reader :approved, :error_message
+  attr_reader :approved, :error_message, :user
 
   def initialize(user)
     @user = user
