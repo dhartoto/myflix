@@ -17,3 +17,5 @@
 secrets.yml
 database.yml
 ngrok
+
+.DS_Store
