@@ -7,13 +7,10 @@ selenium) for unit, functional and integration tests. The application includes
 the following features among others:
 
 1. Log in & Registration: Utilizing Unicorn & SideKiq to handle background jobs
-such as sending welcome emails and password reset
-tokens.
+such as sending welcome emails and password reset tokens.
 2. Following friends: Applying uni-directional self referential associations.
-3. Video and Image upload: Using carrierwave to facilitate uploads together with
-MiniMagick for resizing and Amazon S3 for storage.
-4. Payment : As this feature was built with Stripe's API, Rspec Mock and
-VCR was used in building and testing a wrapper for it.
+3. Video and Image upload: Using carrierwave to facilitate uploads together with MiniMagick for resizing and Amazon S3 for storage.
+4. Payment : As this feature was built with Stripe's API, Rspec Mock and VCR was used in building and testing a wrapper for it.
 
 For a full list of the course curriculum please refer to the following web page:
 http://www.gotealeaf.com/curriculum#!production-apps
