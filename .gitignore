@@ -19,3 +19,5 @@ database.yml
 ngrok
 
 .DS_Store
+
+README.rdoc
